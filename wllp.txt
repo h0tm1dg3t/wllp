@@ -1,10 +1,13 @@
-cd ..
-cd ..
-cd ..
-cd ..
-cd ..
-cd ..
-mkdir kakka
+if (-not (Test-Path -Path "C:\kakka")) {    
+    cd ..
+    cd ..
+    cd ..
+    cd ..
+    cd ..
+    cd ..
+    mkdir kakka
+}
+
 $urlw = (Invoke-WebRequest -Uri "https://pastebin.com/raw/ftDzxTQE").content
 Invoke-WebRequest -Uri $urlw -OutFile C:\kakka\metin.jpg
 Set-ItemProperty -Path 'HKCU:\Control Panel\Desktop\' -Name Wallpaper -Value C:\kakka\metin.jpg
