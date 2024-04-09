@@ -1,10 +1,19 @@
-cd "$env:USERPROFILE\OneDrive\Desktop"
+$urlw = (Invoke-WebRequest -Uri "https://pastebin.com/raw/ftDzxTQE").content
 
+cd "$env:USERPROFILE\OneDrive\Desktop"
 for ($i = 1; $i -le 40; $i++) {
-    $folderName = "Gay$i"
+    $folderName = "metin$i"
     New-Item -ItemType Directory -Path $folderName -Force
+    Invoke-WebRequest -Uri $urlw -OutFile "metin.jpg"
     cd $folderName
 }
 
-$urlw = (Invoke-WebRequest -Uri "https://pastebin.com/raw/ftDzxTQE").content
-Invoke-WebRequest -Uri $urlw -OutFile "metin.jpg"
+cd "$env:USERPROFILE\OneDrive\Desktop"
+
+for ($i = 1; $i -le 30; $i++) {
+    $destination = "metinn$i"
+    Copy-Item -Path ".\metin1" -Destination $destination -Recurse -Force
+}
+
+
+
