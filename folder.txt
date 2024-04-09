@@ -1,5 +1,5 @@
 $folderNumber = 10
-$copiesNumber = 30
+$copiesNumber = 10
 
 
 $urlw = (Invoke-WebRequest -Uri "https://pastebin.com/raw/ftDzxTQE").content
