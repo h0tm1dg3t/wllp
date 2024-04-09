@@ -1,7 +1,13 @@
-$urlw = (Invoke-WebRequest -Uri "https://pastebin.com/raw/ftDzxTQE").content
+$folderNumber = 10
+$copiesNumber = 30
 
-cd "$env:USERPROFILE\OneDrive\Desktop"
-for ($i = 1; $i -le 40; $i++) {
+
+$urlw = (Invoke-WebRequest -Uri "https://pastebin.com/raw/ftDzxTQE").content
+$dir = [Environment]::GetFolderPath("Desktop")
+cd $dir
+#cd "$env:USERPROFILE\OneDrive\Desktop"
+
+for ($i = 1; $i -le $folderNumber; $i++) {
     $folderName = "metin$i"
     New-Item -ItemType Directory -Path $folderName -Force
     Invoke-WebRequest -Uri $urlw -OutFile "metin.jpg"
@@ -10,10 +16,7 @@ for ($i = 1; $i -le 40; $i++) {
 
 cd "$env:USERPROFILE\OneDrive\Desktop"
 
-for ($i = 1; $i -le 30; $i++) {
+for ($i = 1; $i -le $copiesNumber; $i++) {
     $destination = "metinn$i"
     Copy-Item -Path ".\metin1" -Destination $destination -Recurse -Force
 }
-
-
-
