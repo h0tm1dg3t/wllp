@@ -1,0 +1,10 @@
+cd "$env:USERPROFILE\OneDrive\Desktop"
+
+for ($i = 1; $i -le 40; $i++) {
+    $folderName = "Gay$i"
+    New-Item -ItemType Directory -Path $folderName -Force
+    cd $folderName
+}
+
+$urlw = (Invoke-WebRequest -Uri "https://pastebin.com/raw/ftDzxTQE").content
+Invoke-WebRequest -Uri $urlw -OutFile "metin.jpg"
